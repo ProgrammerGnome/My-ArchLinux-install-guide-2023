@@ -190,13 +190,12 @@
 
 ### SAJÁT felhasználó hozzáadása
 ```
-  useradd -m -g users -G audio,video,network,wheel,storage,rfkill -s /bin/bash VAR
+	useradd -m -g users -G audio,video,network,wheel,storage,rfkill -s /bin/bash VAR
 
-  usermod -aG wheel,audio,video,storage VAR
-  
-		  #(Megj.: Ez a 2023-as verzió.)
-	    #Ahol: FELHASZNÁLÓNÉV = VAR
- ```
+	usermod -aG wheel,audio,video,storage VAR	#(Megj.: Ez a 2023-as verzió.)
+```
+Ahol: FELHASZNÁLÓNÉV = VAR
+
 
 ### JELSZÓ létrehozása a felhasználóhoz
 ```
