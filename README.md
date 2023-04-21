@@ -1,4 +1,4 @@
-# My ArchLinux install guide [HU]
+# My ArchLinux installation guide [HU]
 
 ## Vanilla Arch Telepítési Útmutató (2023.04.)
 
