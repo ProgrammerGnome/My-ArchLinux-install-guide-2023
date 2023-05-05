@@ -22,6 +22,10 @@
 ```
 	timedatectl set-ntp true
 ```
+### Lemezek megtekintése
+```
+lsblk
+```
 ### Partícionálás
 ```
 	cfdisk 
@@ -29,16 +33,16 @@
 ```
 ### ROOT partíció formázása ext4-re
 ```
-	mkfs.ext4 /dev/sdaXX (ROOT)
+	mkfs.ext4 /dev/sdaXX (ROOT)				(Pl.: sda1 és sda2)
 ```  
 ### GYÖKÉR Csatolása
 ```
-	mount /dev/sdaXX (ROOT) /mnt
+	mount /dev/sdaXX (ROOT) /mnt				(Pl.: sda1)
 ``` 
 ### Külön HOME könyvtár létrehozása, formázása, csatolása
 ```
 	mkdir /mnt/home
-	mkfs.ext4 /dev/xxx (HOME)
+	mkfs.ext4 /dev/xxx (HOME)				(Pl.: xxx = sda2)
 	mount /dev/xxx /mnt/home
 ```
 ### MIRROR beállítása
@@ -78,7 +82,7 @@
 ```
 ### RENDSZER idő -> a hardver órába
 ```
-	hwclock –systohc
+	hwclock --systohc
 ```
 ### LOCALE generálás 
 ```
@@ -149,10 +153,15 @@
 ```
 	pacman -S grub
 	grub-install /dev/sda
+	
+	mcedit /etc/default/grub
+	GRUB_DISABLE_OS_PROBER=false
+	
+	grub-mkconfig -o /boot/grub/grub.cfg
 ```
 ##### (EFI MÓD)
 ```
-	pacman -S grub efibootmgr os-prober 
+	pacman -S grub efibootmgr os-prober
 ```
 ##### OS-PROBER ENGEDÉLYEZÉSE (Értelemszerűen csak EFI mód esetén.)
 ```
@@ -213,7 +222,7 @@ Ahol: FELHASZNÁLÓNÉV = VAR
 ```
 ### XORG letöltése
 ```
-	sudo pacman -S xorg-server xorg-appres xorg-xinit xterm
+	sudo pacman -S xorg-server xorg-appres xorg-xinit lxterminal
 ```
 ### BEJELENTKEZÉS KEZELŐ letöltése és engedélyezése
 ```
