@@ -197,6 +197,18 @@ lsblk
 ```
 => Majd FRISSÍTÉS (Ellenőrizni a multilib letöltődését!)
 
+### Chaotic-AUR letöltése és bekapcsolása
+```
+sudo pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
+sudo pacman-key --lsign-key FBA220DFC880C036
+sudo pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+
+sudo nano /etc/pacman.conf 			(Ebbe a fájlba értelemszerűen beleíruk a következő két sor tartalmát.)
+
+[chaotic-aur]
+Include = /etc/pacman.d/chaotic-mirrorlist
+```
+
 ### SAJÁT felhasználó hozzáadása
 ```
 	useradd -m -g users -G audio,video,network,wheel,storage,rfkill -s /bin/bash VAR
@@ -252,7 +264,7 @@ EndSection
 
 ### ASZTALI KÖRNYEZET TELEPÍTÉSE
 ```
-	sudo pacman -S lxde
+	sudo pacman -S lxde		(Ez egy javaslat, igazából ehelyett bármilyen asztali környezetet telepíthetsz!)
 ```
 #### Miért az LXDE?
 
